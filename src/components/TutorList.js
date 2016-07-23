@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 function TutorList({tutorList = []}){
 	return (
@@ -11,4 +12,10 @@ function TutorList({tutorList = []}){
 			</div>
 		)
 }
-export default TutorList;
+function mapStateProps(state){
+	const tutorList = state.tutorList;
+	return{
+		tutorList
+	}
+}
+export default connect(mapStateProps)(TutorList);

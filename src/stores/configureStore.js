@@ -7,5 +7,5 @@ const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+	return createStoreWithMiddleware(rootReducer, initialState);
 }

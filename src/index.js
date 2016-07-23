@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './stores/configureStore';
 import * as actions from './actions';
 import TutorList from './components/TutorList';
+import {Provider} from 'react-redux';
 
 const tutorList = [
 	{name:'Mr Robot'},
@@ -11,6 +12,8 @@ const tutorList = [
 const store = configureStore();
 store.dispatch(actions.setTutorList(tutorList));
 ReactDOM.render(
-		<TutorList tutorList = {tutorList} />,
+		<Provider store = {store}>
+			<TutorList/>
+		</Provider>,
 		document.getElementById('app')
 	);
