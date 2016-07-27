@@ -1,13 +1,19 @@
 import React from 'react';
 
-function TutorList({tutorList = []}){
-	return (
+class TutorList extends React.Component{
+	constructor(props){
+		super(props);
+	}
+	render(){
+		return (
 			<div>
 				{
-					tutorList.map((tutor,key)=>{
+					this.props.tutorList.map((tutor,key)=>{
 						return <div className="tutorListItem" key={key}>{tutor.name}</div>;
 					})
 				}
 			</div>
 		)
+	}
 }
+export default TutorList;
