@@ -8,13 +8,9 @@ import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-const tutorList = [
-	{name:'Mr Robot'},
-	{name:'Mr Jhon'},
-	{name: 'Mr X'}
-];
+
 const store = configureStore();
-store.dispatch(actions.setTutorList(tutorList));
+//store.dispatch(actions.setTutorList(tutorList));
 const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
 		<Provider store = {store}>

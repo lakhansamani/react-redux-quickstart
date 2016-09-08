@@ -5,6 +5,6 @@ function mapStateProps(state){
 	const tutorList = state.tutorList;
 	return{
 		tutorList
-	}
+	};
 }
 export default connect(mapStateProps)(TutorList);

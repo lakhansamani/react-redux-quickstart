@@ -1,8 +1,12 @@
 import React from 'react';
-
+import {fetchData} from '../../actions';
 class TutorList extends React.Component{
 	constructor(props){
 		super(props);
+	}
+	componentDidMount(){
+		const { dispatch } = this.props;
+		dispatch(fetchData());
 	}
 	render(){
 		return (
@@ -13,7 +17,7 @@ class TutorList extends React.Component{
 					})
 				}
 			</div>
-		)
+		);
 	}
 }
 export default TutorList;
