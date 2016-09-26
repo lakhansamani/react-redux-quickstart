@@ -13,7 +13,6 @@ const mapDispatchToProps = (dispatch) => {
 		getData:()=>{
 			let req = dispatch(fetchData());
 			req.payload.then((response)=>{
-				console.log(response);
 				dispatch(fetchDataSuccess(response));
 			},(err)=>{
 				dispatch(fetchDataFailure(err.message));

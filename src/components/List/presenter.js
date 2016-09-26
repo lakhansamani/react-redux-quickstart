@@ -9,7 +9,6 @@ class List extends React.Component{
 	}
 	render(){
 		const { list, loading, err } = this.props.list;
-		console.log(this.props.list);
 		if(loading){
 			return(
 				<div><h1>Loading .... </h1></div>
