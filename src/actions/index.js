@@ -1,5 +1,5 @@
-import { setTutorList, fetchData } from './tutorList';
+import { setList, fetchData } from './list';
 export {
-	setTutorList,
+	setList,
 	fetchData
 };

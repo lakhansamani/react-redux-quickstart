@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import tutorList from './tutorList';
+import list from './list';
 import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
-	tutorList,
+	list,
 	routing: routerReducer
 });

@@ -12,5 +12,4 @@ This repository contains a react example which is built using Redux as a flux ar
 * Open localhost:8080 in your browser
 
 ## How to build for ```distribution```?
-* ```npm build```, if this command does not create bundle.js file in your dist folder then use following command
-* ```webpack --progress --p --color --config webpack.config.js```
+* ```npm run build```

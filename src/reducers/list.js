@@ -4,14 +4,14 @@ const initialState = [];
 
 export default function(state = initialState, action) {
 	switch (action.type) {
-		case actionTypes.SET_TUTOR:
-			return setTutorList(state, action);
+		case actionTypes.SET_LIST:
+			return setList(state, action);
 	}
 	return state;
 }
 
-function setTutorList(state, action) {
+function setList(state, action) {
 	//will automatically get tutorList hash from action object
-	const { tutorList } = action;
-	return [ ...state, ...tutorList ];
+	const { list } = action;
+	return [ ...state, ...list ];
 }

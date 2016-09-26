@@ -1,6 +1,6 @@
 import React from 'react';
 import {fetchData} from '../../actions';
-class TutorList extends React.Component{
+class List extends React.Component{
 	constructor(props){
 		super(props);
 	}
@@ -12,12 +12,12 @@ class TutorList extends React.Component{
 		return (
 			<div>
 				{
-					this.props.tutorList.map((tutor,key)=>{
-						return <div className="tutorListItem" key={key}>{tutor.name}</div>;
+					this.props.list.map((item,key)=>{
+						return <div key={key}>{item.name}</div>;
 					})
 				}
 			</div>
 		);
 	}
 }
-export default TutorList;
+export default List;
