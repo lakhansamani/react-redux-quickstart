@@ -11,7 +11,6 @@ export default function(state = initialState, action) {
 }
 
 function setList(state, action) {
-	//will automatically get tutorList hash from action object
 	const { list } = action;
 	return [ ...state, ...list ];
 }
