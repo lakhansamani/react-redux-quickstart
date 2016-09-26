@@ -1,5 +1,6 @@
-import { setList, fetchData } from './list';
+import { fetchData,fetchDataSuccess,fetchDataFailure } from './list';
 export {
-	setList,
-	fetchData
+	fetchData,
+	fetchDataSuccess,
+	fetchDataFailure
 };

@@ -5,14 +5,25 @@ class List extends React.Component{
 		super(props);
 	}
 	componentDidMount(){
-		const { dispatch } = this.props;
-		dispatch(fetchData());
+		this.props.getData();
 	}
 	render(){
+		const { list, loading, err } = this.props.list;
+		console.log(this.props.list);
+		if(loading){
+			return(
+				<div><h1>Loading .... </h1></div>
+			)
+		}
+		else if(err){
+			return(
+				<div><h1>{err}</h1></div>
+			)
+		}
 		return (
 			<div>
 				{
-					this.props.list.map((item,key)=>{
+					list.map((item,key)=>{
 						return <div key={key}>{item.name}</div>;
 					})
 				}

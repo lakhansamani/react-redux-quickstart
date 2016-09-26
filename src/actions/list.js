@@ -1,15 +1,22 @@
 import * as actionTypes from '../constants/actionType';
 import getList from './ListApi.js';
-export function setList(list){
+
+export function fetchData (){
 	return {
-		type:'SET_LIST',
-		list
+		type:actionTypes.FETCH_DATA,
+		payload: getList()
 	};
 }
-export function fetchData (){
-	return function(dispatch){
-		getList().then(function(data){
-			dispatch(setList(data));
-		});
-	};
+export function fetchDataSuccess(list){
+	return{
+		type: actionTypes.FETCH_DATA_SUCCESS,
+		payload:list
+	}
+}
+
+export function fetchDataFailure(err){
+	return{
+		type: actionTypes.FETCH_DATA_ERROR,
+		payload: err
+	}
 }
