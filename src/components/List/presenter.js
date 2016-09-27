@@ -12,12 +12,12 @@ class List extends React.Component{
 		if(loading){
 			return(
 				<div><h1>Loading .... </h1></div>
-			)
+			);
 		}
 		else if(err){
 			return(
 				<div><h1>{err}</h1></div>
-			)
+			);
 		}
 		return (
 			<div>

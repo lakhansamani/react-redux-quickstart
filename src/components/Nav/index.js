@@ -4,9 +4,9 @@ class Nav extends Component{
   render(){
     return(
       <div className="appNavbar">
-        <span className="appBrand"><img src={logo} alt="logo" className="appLogo" /></span>
+        <div className="appBrand">My App</div>
       </div>
-    )
+    );
   }
 }
-export default Nav
+export default Nav;

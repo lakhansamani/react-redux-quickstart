@@ -7,7 +7,7 @@ const mapStateProps = (state) => {
 	return{
 		list
 	};
-}
+};
 const mapDispatchToProps = (dispatch) => {
 	return{
 		getData:()=>{
@@ -18,6 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 				dispatch(fetchDataFailure(err.message));
 			});
 		}
-	}
-}
+	};
+};
 export default connect(mapStateProps,mapDispatchToProps)(List);
