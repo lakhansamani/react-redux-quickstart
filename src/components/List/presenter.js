@@ -5,10 +5,10 @@ class List extends React.Component{
 		super(props);
 	}
 	componentDidMount(){
-		this.props.getData();
+		this.props.getData(0);
 	}
 	render(){
-		const { list, loading, err } = this.props.list;
+		const { list, loading, err, limit, offset } = this.props.list;
 		if(loading){
 			return(
 				<div><h1>Loading .... </h1></div>
@@ -21,11 +21,16 @@ class List extends React.Component{
 		}
 		return (
 			<div>
-				{
-					list.map((item,key)=>{
-						return <div key={key}>{item.name}</div>;
+				<ul id="rig">
+					{list.map((item,key)=>{
+						return (<li key={key}>
+							<a className="rig-cell">
+								<img className="rig-img" src={item.previewURL} />
+							</a>
+						</li>);
 					})
-				}
+					}
+				</ul>
 			</div>
 		);
 	}

@@ -10,10 +10,15 @@ const mapStateProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
 	return{
-		getData:()=>{
-			let req = dispatch(fetchData());
+		getData:(offset)=>{
+			let req = dispatch(fetchData(offset));
 			req.payload.then((response)=>{
-				dispatch(fetchDataSuccess(response));
+				if(response.status){
+					dispatch(fetchDataSuccess(response.response));
+				}
+				else{
+					dispatch(fetchDataFailure(JSON.stringify(response.err)));
+				}
 			},(err)=>{
 				dispatch(fetchDataFailure(err.message));
 			});

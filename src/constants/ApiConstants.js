@@ -1,2 +1,2 @@
-const API = 'http://private-5d48c7-clueup.apiary-mock.com/';
-export const getList  = API+'list';
+const API = 'http://localhost:3000/';
+export const getList  = API+'list/getList';
