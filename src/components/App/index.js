@@ -1,7 +1,14 @@
 import React from 'react';
-
+import Nav from '../Nav';
 function App({children}) {
-	return <div> {children} </div>;
+	return (
+		<div>
+			<Nav />
+			<div className="appContainer">
+				{children}
+			</div>
+		</div>
+	);
 }
 
 export default App;

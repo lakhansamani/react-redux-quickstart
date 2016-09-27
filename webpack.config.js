@@ -8,8 +8,8 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/dist/script/',
+    path: __dirname + '/dist/assets',
+    publicPath: '/assets/',
     filename: 'bundle.js'
   },
   module: {
@@ -21,6 +21,14 @@ module.exports = {
     {
       test: /\.scss$/,
       loader: 'style!css!sass'
+    },
+    {
+      test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+      loader: 'file-loader'
+    },
+    {
+      test:/\.(jpg|jpeg|png)$/,
+      loader: 'file-loader'
     }]
   },
   plugins: [
