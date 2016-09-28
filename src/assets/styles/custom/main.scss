@@ -118,3 +118,16 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+    #rig li {
+        width:50%;
+    }
+    .rig-img{
+      height:150px;
+    }
+}
