@@ -3,7 +3,7 @@ var router = express.Router();
 var List = require('../models/List');
 var data = require('../data/');
 router.get('/getList', function(req, res, next) {
-  List.paginate({},{offset:req.query.offset,limit:12},function(err,result){
+  List.paginate({},{offset:parseInt(req.query.offset),limit:12,skip:0},function(err,result){
     if(err){
       res.send({"err":err,"status":false});
     }else{
