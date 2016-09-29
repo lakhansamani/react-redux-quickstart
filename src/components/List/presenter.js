@@ -56,7 +56,7 @@ class List extends React.Component{
 					{list.map((item,key)=>{
 						return (<li key={key}>
 							<a className="rig-cell">
-								<img className="rig-img" src={item.webformatURL} />
+								<img className="rig-img" src={item.previewURL} />
 								<span className="rig-overlay"></span>
 								<span className="rig-text">{item.user}</span>
 							</a>

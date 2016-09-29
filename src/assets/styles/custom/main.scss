@@ -4,25 +4,11 @@ body{
   margin:0px;
   background: rgb(249, 249, 249);
 }
-.appNavbar{
-  box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px, rgba(0, 0, 0, 0.0588235) 0px 2px 4px 0px;
-  background: $white;
-  height:50px;
-  width: 100%;
-  top:0px;
-  position: fixed;
-  z-index: 1;
+.navbar{
+  border-radius: 0px;
 }
 .appContainer{
-  padding-right:55px;
-  padding-left:55px;
-  margin-top:70px;
-  margin-right:auto;
-  margin-left:auto;
-}
-.appBrand{
-  padding:15px 20px;
-  font-size: 18px;
+  margin-top: 60px;
 }
 #rig {
     width:100%;
