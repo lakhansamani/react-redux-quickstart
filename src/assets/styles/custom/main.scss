@@ -109,11 +109,23 @@ body{
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 800px) {
+@media (max-width: 9000px) {
+    #rig li {
+        width:25%;
+    }
+}
+
+@media (min-width: 700px) and (max-width:960px) {
+    #rig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
     #rig li {
         width:50%;
     }
     .rig-img{
-      height:150px;
+        height:150px;
     }
 }
