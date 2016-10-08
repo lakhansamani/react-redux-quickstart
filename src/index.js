@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './stores/configureStore';
 import * as actions from './actions';
-import List from './components/List';
+import Home from './components/Home';
 import App from './components/App';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -15,8 +15,8 @@ ReactDOM.render(
 		<Provider store = {store}>
 			<Router history={history}>
 				<Route path = "/" component = {App}>
-					<IndexRoute component = {List} />
-					<Route path="/" component={List} />
+					<IndexRoute component = {Home} />
+					<Route path="/" component={Home} />
 				</Route>
 			</Router>
 		</Provider>,

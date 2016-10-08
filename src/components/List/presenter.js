@@ -16,7 +16,7 @@ class List extends React.Component{
 	}
 	onScroll() {
 		const {offset} = this.props.list;
-		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)) {
+		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) && this.props.lazyLoad) {
 			if(this.needToFetch() && this.canFetch()){
 				this.props.getData(offset);
 			}

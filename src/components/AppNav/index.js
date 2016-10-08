@@ -12,15 +12,15 @@ class AppNav extends Component{
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
+          <Nav pullRight>
+            <NavItem eventKey={1} href="#">Login</NavItem>
+            <NavItem eventKey={2} href="#">Signup</NavItem>
+          </Nav>
           <Navbar.Form pullRight>
             <FormGroup>
               <FormControl type="text" placeholder="Search" />
             </FormGroup>
           </Navbar.Form>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="#">Login</NavItem>
-            <NavItem eventKey={2} href="#">Signup</NavItem>
-          </Nav>
         </Navbar.Collapse>
       </Navbar>
     );
