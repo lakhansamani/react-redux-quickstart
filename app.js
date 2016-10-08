@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var list = require('./routes/list');
+var user = require('./routes/user');
 var config = require('./bin/config');
 var app = express();
 mongoose.connect(config.connectionString);
@@ -28,7 +29,7 @@ app.use(function(req, res, next) {
 });
 app.use('/', routes);
 app.use('/list', list);
-
+app.use('/user',user);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

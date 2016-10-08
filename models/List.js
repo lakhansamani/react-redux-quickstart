@@ -17,12 +17,13 @@ var ListSchema = new Schema({
   "webformatURL": String,
   "imageWidth": Number,
   "user_id": Number,
-  "user": String,
+  "user": {type:[String],index:true},
   "type": String,
   "id": Number,
   "userImageURL": String,
   "imageHeight": Number
 });
+ListSchema.index({ name: 1, type: -1 });
 ListSchema.plugin(mongoosePaginate);
 var List = mongoose.model("List",ListSchema);
 module.exports = List;
