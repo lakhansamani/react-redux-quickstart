@@ -29,6 +29,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
     next();
 });
+console.time("1");
 app.use(function(req,res,next){
   if(!_.includes(config.excludeRoutes,req.path)){
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -44,6 +45,7 @@ app.use(function(req,res,next){
           next();
         }
       });
+      console.timeEnd("1");
     }
     else{
       return res.status(403).send({ success:false,message:"Empty Token"});
