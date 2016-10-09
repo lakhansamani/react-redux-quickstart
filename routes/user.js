@@ -4,7 +4,7 @@ var User = require('../models/User');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 var config = require("../bin/config");
-
+var jwt = require('jsonwebtoken');
 router.post('/saveUser',function(req,res,next){
     bcrypt.hash(req.body.password, saltRounds, function(err, hash){
         console.log(hash);
@@ -30,7 +30,10 @@ router.post("/login",function(req,res,next){
             if(doc){
                 bcrypt.compare(req.body.password, doc.password, function(e, r) {
                     if(r){
-                        res.send({respons:"Login successfully",status:true});
+                        var token = jwt.sign(doc, config.cipherSalt, {
+                            expiresIn:1440
+                        });
+                        res.send({response:{message:"Login successfully",user:doc,token:token},status:true});
                     }
                     else{
                         res.send({err:"Invalid password",status:false});
@@ -42,6 +45,14 @@ router.post("/login",function(req,res,next){
             }
 
         }
+    });
+});
+router.get('/getUsers',function(req,res,next){
+    User.find({},function(err,users){
+        if(err){
+            res.send({err:err,status:false});
+        }
+        res.send({status:true,response:users});
     });
 });
 module.exports  = router;

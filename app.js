@@ -10,6 +10,8 @@ var list = require('./routes/list');
 var user = require('./routes/user');
 var config = require('./bin/config');
 var app = express();
+var jwt = require('jsonwebtoken');
+var _ = require('lodash');
 mongoose.connect(config.connectionString);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +26,32 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
     next();
+});
+app.use(function(req,res,next){
+  if(!_.includes(config.excludeRoutes,req.path)){
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    console.log(req.path);
+    if(token){
+      jwt.verify(token, config.cipherSalt, function(err, decoded) {
+        if(err){
+          console.log(err);
+          return res.json({ success: false, message: 'Failed to authenticate token.' });
+        }
+        else{
+          req.authToken = decoded;
+          next();
+        }
+      });
+    }
+    else{
+      return res.status(403).send({ success:false,message:"Empty Token"});
+    }
+  }
+  else{
+    next();
+  }
 });
 app.use('/', routes);
 app.use('/list', list);
