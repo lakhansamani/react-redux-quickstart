@@ -54,7 +54,5 @@ test('lists images', t => {
   const wrapper = shallow(
     <List list={data} />
   );
-  // there are million ways to test this,
-  // but I think counting <Todo> components should be enough
   t.is(wrapper.find('ListItem').length, 2);
 });
