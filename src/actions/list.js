@@ -1,13 +1,13 @@
 import * as actionTypes from '../constants/actionType';
-import getList from './ListApi.js';
+import getList from '../api/ListApi';
 
-export function fetchData (offset){
+function fetchData (offset){
 	return {
 		type:actionTypes.FETCH_DATA,
 		payload: getList(offset)
 	};
 }
-export function fetchDataSuccess(data){
+function fetchDataSuccess(data){
 	if(!data){data:{}}
 	return{
 		type: actionTypes.FETCH_DATA_SUCCESS,
@@ -15,9 +15,14 @@ export function fetchDataSuccess(data){
 	};
 }
 
-export function fetchDataFailure(err){
+function fetchDataFailure(err){
 	return{
 		type: actionTypes.FETCH_DATA_ERROR,
 		payload: err
 	};
 }
+export {
+	fetchData,
+	fetchDataSuccess,
+	fetchDataFailure
+};

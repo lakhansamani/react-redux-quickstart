@@ -7,14 +7,13 @@ class AppNav extends Component{
       <Navbar inverse fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">My App</a>
+            <a href="#">Sample Application</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">Login</NavItem>
-            <NavItem eventKey={2} href="#">Signup</NavItem>
+            <NavItem eventKey={1} href="#">Login / Signup</NavItem>
           </Nav>
           <Navbar.Form pullRight>
             <FormGroup>
