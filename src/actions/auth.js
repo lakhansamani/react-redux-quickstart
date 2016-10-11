@@ -8,10 +8,32 @@ function checkAuth(token){
 }
 function loginRequest(data){
     return{
-        type:actionTypes.LOGIN,
+        type:actionTypes.LOGIN_REQUEST,
         payload:postLoginData(data)
     };
 }
+function loginSuccess(data){
+    return{
+        type:actionTypes.LOGIN_SUCCESS,
+        payload:data
+    };
+}
+function loginFailure(err){
+    return{
+        type:actionTypes.LOGIN_ERR,
+        payload:err
+    };
+}
+function logoutAction(){
+    return{
+        type:actionTypes.LOGOUT,
+        payload:null
+    };
+}
 export{
-    checkAuth
+    checkAuth,
+    loginRequest,
+    loginSuccess,
+    loginFailure,
+    logoutAction
 };

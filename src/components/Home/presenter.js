@@ -8,7 +8,10 @@ class Home extends Component{
     this.onScroll = this.onScroll.bind(this);
   }
   componentDidMount(){
-    this.props.getData(0);
+    if(this.needToFetch()){
+      this.props.getData(0);
+    }
+
     window.addEventListener('scroll', this.onScroll, false);
   }
   componentWillUnmount() {
@@ -25,6 +28,9 @@ class Home extends Component{
 
   needToFetch(){
     const {total, list, offset} = this.props.list;
+    if(list.length === 0){
+      return true;
+    }
     if(total === list.length){
       return false;
     }

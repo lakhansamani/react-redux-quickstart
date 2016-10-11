@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import {FormGroup, ControlLabel, FormControl, Button, HelpBlock} from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+
 export default class LoginForm extends Component{
     constructor(props){
         super(props);
         this.state = {email:'',password:'',errorUsername:'',errorPassword:''};
+    }
+    componentDidMount(){
+        if(this.props.auth.isLoggedIn){
+            browserHistory.push('/');
+        }
     }
     handleEmailChange(e){
         this.setState({email:e.target.value,errorUsername:''});
@@ -27,16 +34,27 @@ export default class LoginForm extends Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        if(this.getValidationStateEmail() !== 'success'){
-            this.setState({errorUsername:'Please enter valid email'});
+        if(this.getValidationStateEmail() !== 'success' ||  this.getValidationStatePassword() !== 'success'){
+            if(this.getValidationStateEmail() !== 'success'){
+                this.setState({errorUsername:'Please enter valid email'});
 
+            }
+            if(this.getValidationStatePassword() !== 'success'){
+                this.setState({errorPassword:'Please enter valid password'});
+
+            }
         }
-        if(this.getValidationStatePassword() !== 'success'){
-            this.setState({errorPassword:'Please enter valid password'});
+        else{
+            let data = {
+                "username":"abhay.samani@gmail.com",
+                "password":this.state.password
+            };
+            this.props.loginRequest(data);
 
         }
     }
     render(){
+        const {isLoading,err} = this.props.auth;
         return(
             <div>
                 <div className="row">
@@ -59,10 +77,12 @@ export default class LoginForm extends Component{
                                     />
                                     <span className="text-danger">{this.state.errorPassword}</span>
                                     </FormGroup>
-                                    <Button type="submit" bsStyle="primary" block>Login</Button>
+                                    <Button type="submit" bsStyle="primary" block disabled={isLoading}>{isLoading ? 'Procession request...' : 'Login'}</Button>
                                 </form>
+
                             </div>
                         </div>
+                        <h5 className="text-danger">{err? err :''}</h5>
                     </div>
                 </div>
             </div>

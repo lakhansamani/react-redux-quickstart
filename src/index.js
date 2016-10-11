@@ -5,6 +5,7 @@ import * as actions from './actions';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 import App from './components/App';
+import Logout from './components/logout';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
@@ -19,6 +20,7 @@ ReactDOM.render(
 					<IndexRoute component = {Home} />
 					<Route path="/" component={Home} />
 					<Route path="/login" component={LoginForm} />
+					<Route path="/logout" component={Logout} />
 				</Route>
 			</Router>
 		</Provider>,

@@ -10,9 +10,15 @@ let verifyToken = (token) => {
     }
 };
 let postLoginData = (data) =>{
-    return fetch(api.login,{method:'POST',body:data})
+    console.log(data);
+    return fetch(api.login,{method:'POST',
+    headers: {
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify(data)})
     .then(res=>res.json(),err=>err);
 };
 export {
-    verifyToken
+    verifyToken,
+    postLoginData
 };
