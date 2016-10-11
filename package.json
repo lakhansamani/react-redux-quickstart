@@ -4,7 +4,7 @@
   "description": "react redux quick start",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_PATH=src ava",
+    "test": "cross-env NODE_PATH=src ava --tap --verbose",
     "start": "webpack-dev-server --progress --colors --hot --config ./webpack.dev.config.js",
     "build": "webpack --progress --p --color --config webpack.config.js"
   },

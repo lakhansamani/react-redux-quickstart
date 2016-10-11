@@ -8,6 +8,7 @@ export function fetchData (offset){
 	};
 }
 export function fetchDataSuccess(data){
+	if(!data){data:{}}
 	return{
 		type: actionTypes.FETCH_DATA_SUCCESS,
 		payload:data
