@@ -5,7 +5,7 @@ import * as actions from './actions';
 import Home from './components/Home';
 import LoginForm from './components/LoginForm';
 import App from './components/App';
-import Logout from './components/logout';
+import Logout from './components/Logout';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';

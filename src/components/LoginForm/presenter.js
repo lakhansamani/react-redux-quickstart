@@ -77,7 +77,7 @@ export default class LoginForm extends Component{
                                     />
                                     <span className="text-danger">{this.state.errorPassword}</span>
                                     </FormGroup>
-                                    <Button type="submit" bsStyle="primary" block disabled={isLoading}>{isLoading ? 'Procession request...' : 'Login'}</Button>
+                                    <Button type="submit" block disabled={isLoading}>{isLoading ? 'Procession request...' : 'Login'}</Button>
                                 </form>
 
                             </div>
