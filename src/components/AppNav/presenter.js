@@ -16,7 +16,7 @@ class AppNav extends Component{
       authLink='/login';
     }
     return(
-      <Navbar inverse fixedTop>
+      <Navbar fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/">Sample Application</Link>
@@ -31,7 +31,7 @@ class AppNav extends Component{
           </Nav>
           <Navbar.Form pullRight>
             <FormGroup>
-              <FormControl type="text" placeholder="Search" />
+              <FormControl type="text" placeholder="Search" className="input-sm"/>
             </FormGroup>
           </Navbar.Form>
         </Navbar.Collapse>

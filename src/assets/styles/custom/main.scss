@@ -1,14 +1,10 @@
 body{
-  font-family: avenirmedium;
   padding: 0px;
   margin:0px;
   background: rgb(249, 249, 249);
 }
-.navbar{
-  border-radius: 0px;
-}
 .appContainer{
-  margin-top: 60px;
+  margin-top: 80px;
 }
 #rig {
     width:100%;
@@ -70,6 +66,7 @@ body{
 }
 #rig li:hover .rig-overlay {
     opacity:0.8;
+    cursor: pointer;
 }
 #rig li:hover .rig-action-overlay {
     opacity:0.8;
