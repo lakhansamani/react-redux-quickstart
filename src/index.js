@@ -9,6 +9,7 @@ import Logout from './components/Logout';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import { requireAuth } from './utils/authservice';
 require('./assets/styles/index.scss');
 
 const store = configureStore();
@@ -20,7 +21,9 @@ ReactDOM.render(
 					<IndexRoute component = {Home} />
 					<Route path="/" component={Home} />
 					<Route path="/login" component={LoginForm} />
-					<Route path="/logout" component={Logout} />
+					<Route  onEnter = {requireAuth}>
+						<Route path="/logout" component={Logout} />
+					</Route>
 				</Route>
 			</Router>
 		</Provider>,

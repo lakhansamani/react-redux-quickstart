@@ -14,7 +14,16 @@ function getLoginData(){
         return null;
     }
 }
+function requireAuth(nextState, replace) {
+  if (!checkLogin()) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
 export{
     checkLogin,
-    getLoginData
+    getLoginData,
+    requireAuth
 };
