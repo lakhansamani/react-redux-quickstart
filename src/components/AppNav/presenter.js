@@ -32,8 +32,12 @@ class AppNav extends Component{
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight onSelect={this.closeNav.bind(this)}>
+            {this.props.auth.isLoggedIn?
+              <LinkContainer to='/addItem'>
+                 <NavItem eventKey={1}>Add Item</NavItem>
+                 </LinkContainer>:''}
             <LinkContainer to={authLink}>
-              <NavItem eventKey={1} href="#">{this.props.auth.isLoggedIn?'Logout':'Login'}</NavItem>
+              <NavItem eventKey={2}>{this.props.auth.isLoggedIn?'Logout':'Login'}</NavItem>
             </LinkContainer>
           </Nav>
           <Navbar.Form pullRight>
