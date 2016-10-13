@@ -22,6 +22,7 @@ router.post('/saveUser',function(req,res,next){
 
 });
 router.post("/login",function(req,res,next){
+    console.log(req.body);
     User.findOne({username:req.body.username},function(err,doc){
         if(err){
             res.send({err:err,status:false});
