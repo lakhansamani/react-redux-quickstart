@@ -20,7 +20,7 @@ export default class LoginForm extends Component{
     }
     getValidationStateEmail(){
         let email = this.state.email;
-        let length = this.state.email.length;
+        let length = this.state.email.trim().length;
         if(email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-za-z\-0-9]+\.)+[a-za-z]{2,}))$/)){
             return 'success';
         }
@@ -46,7 +46,7 @@ export default class LoginForm extends Component{
         }
         else{
             let data = {
-                "username":"abhay.samani@gmail.com",
+                "username":this.state.email,
                 "password":this.state.password
             };
             this.props.loginRequest(data);
@@ -66,13 +66,13 @@ export default class LoginForm extends Component{
                             <div className="panel-body">
                                 <form onSubmit={this.handleSubmit.bind(this)}>
                                     <FormGroup validationState={this.getValidationStateEmail()} controlId="Username">
-                                    <ControlLabel>Username</ControlLabel>
+                                    <label>Username</label>
                                     <FormControl type="email" value={this.state.email} placeholder="Enter your email" onChange={this.handleEmailChange.bind(this)}/>
                                     <span className="text-danger">{this.state.errorUsername}</span>
                                     </FormGroup>
 
                                     <FormGroup validationState={this.getValidationStatePassword()} controlId="password">
-                                    <ControlLabel>Password</ControlLabel>
+                                    <label>Password</label>
                                     <FormControl type="password" value={this.state.password} placeholder="Enter your password" onChange={this.handlePasswordChange.bind(this)}
                                     />
                                     <span className="text-danger">{this.state.errorPassword}</span>

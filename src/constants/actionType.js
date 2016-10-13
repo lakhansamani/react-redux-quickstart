@@ -2,6 +2,9 @@
 export const FETCH_DATA = 'FETCH_DATA';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR';
+export const ADD_REQ_INIT = 'ADD_REQ_INIT';
+export const ADD_REQ_SUCCESS = 'ADD_REQ_SUCCESS';
+export const ADD_REQ_ERROR = 'ADD_REQ_ERROR';
 
 //Auth related actions
 export const CHECK_AUTH = 'CHECK_AUTH';

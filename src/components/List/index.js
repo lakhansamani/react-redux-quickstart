@@ -6,7 +6,7 @@ class List extends React.Component{
 			<div>
 				<ul id="rig">
 					{this.props.list.map((item,key)=>{
-						return <ListItem key={key} previewURL={item.previewURL} user={item.user} />;
+						return <ListItem key={key} url={item.url} title={item.title} />;
 					})
 					}
 				</ul>

@@ -6,6 +6,10 @@ function checkLogin(){
         return false;
     }
 }
+function getAccessToken(){
+  let data = JSON.parse(localStorage.authData);
+  return data.token;
+}
 function getLoginData(){
     if(localStorage.authData){
         return localStorage.authData;
@@ -25,5 +29,6 @@ function requireAuth(nextState, replace) {
 export{
     checkLogin,
     getLoginData,
-    requireAuth
+    requireAuth,
+    getAccessToken
 };

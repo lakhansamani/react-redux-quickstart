@@ -6,9 +6,13 @@ class AddItem extends Component{
         super(props);
     }
     render(){
+        const data = {
+          title:'',
+          url:''
+        };
         return (
             <div>
-                <ItemForm />
+                <ItemForm data={data} />
             </div>
         );
     }
