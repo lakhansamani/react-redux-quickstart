@@ -12,6 +12,7 @@ var config = require('./bin/config');
 var app = express();
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
+var cors = require('cors');
 mongoose.connect(config.connectionString);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,12 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
-    next();
-});
-console.time("1");
+app.use(cors());
 app.use(function(req,res,next){
   if(!_.includes(config.excludeRoutes,req.path)){
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -45,7 +41,6 @@ app.use(function(req,res,next){
           next();
         }
       });
-      console.timeEnd("1");
     }
     else{
       return res.status(403).send({ success:false,message:"Empty Token"});

@@ -3,7 +3,7 @@ var router = express.Router();
 var List = require('../models/List');
 
 router.get('/getList', function(req, res, next) {
-  List.paginate({},{offset:parseInt(req.query.offset),limit:12,skip:0},function(err,result){
+  List.paginate({},{offset:parseInt(req.query.offset),limit:12,skip:0,sort:{_id:-1}},function(err,result){
     if(err){
       res.send({"err":err,"status":false});
     }else{
@@ -26,12 +26,12 @@ router.post('/addMultiple',function(req,res,next){
 router.post('/addData',function(req,res,next){
   var list = new List(req.body);
   list.user_id = req.authToken._doc._id;
-  res.send({"err":"a","status":false});
+  console.log(list);
   list.save(function(err,doc){
     if(err){
       res.send({"err":err,"status":false});
     }else{
-      res.send({"status":true,"response":doc});
+      res.send({"status":true,"response":{item:doc}});
     }
   });
 });
