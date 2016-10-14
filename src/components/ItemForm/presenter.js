@@ -27,25 +27,23 @@ class ItemForm extends Component{
         if(this.getValidationStateTitle() !== 'success' ||  this.getValidationStateUrl() !== 'success'){
             if(this.getValidationStateTitle() !== 'success'){
                 this.setState({errorTitle:'Please enter valid title'});
-
             }
             if(this.getValidationStateUrl() !== 'success'){
                 this.setState({errorUrl:'Please enter valid url'});
-
             }
         }
         else{
+          if(this.props.action === 'add'){
             let data = {
-                "username":this.state.email,
-                "password":this.state.password
+                "title":this.state.title,
+                "url":this.state.url
             };
-            this.props.loginRequest(data);
-
+            this.props.addData(data);
+          }
         }
     }
     render(){
-        const isLoading = false;
-        const err = "";
+        let {isLoading,err} = this.props.list;
         return(
             <div>
                 <div className="row">

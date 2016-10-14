@@ -6,12 +6,13 @@ const getList = (offset) => {
     .then((res)=>res.json(),(err)=>err);
 };
 const addItem = (data) =>{
-  return fetch(api.login,{method:'POST',
+  console.log(data);
+  return fetch(api.addData,{method:'POST',
   headers: {
       'Content-Type':'application/json',
       'x-access-token':getAccessToken()
   },
   body:JSON.stringify(data)})
   .then(res=>res.json(),err=>err);
-}
+};
 export {getList,addItem};

@@ -12,7 +12,7 @@ class AddItem extends Component{
         };
         return (
             <div>
-                <ItemForm data={data} />
+                <ItemForm data={data} action='add'/>
             </div>
         );
     }

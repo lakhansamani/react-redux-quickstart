@@ -18,7 +18,7 @@ class Home extends Component{
     window.removeEventListener('scroll', this.onScroll, false);
   }
   onScroll() {
-    const {offset} = this.props.list;
+    const {offset,limit} = this.props.list;
     if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)) {
       if(this.needToFetch() && this.canFetch()){
         this.props.getData(offset);
@@ -27,10 +27,11 @@ class Home extends Component{
   }
 
   needToFetch(){
-    const {total, list, offset} = this.props.list;
+    const {total, list, offset, limit, shouldFetch} = this.props.list;
     if(list.length === 0){
       return true;
     }
+
     if(total === list.length){
       return false;
     }
