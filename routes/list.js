@@ -44,6 +44,15 @@ router.put('/updateData/:id',function(req,res,next){
     }
   });
 });
+router.get('/getItem/:id',function(req,res,next){
+  List.findOne({_id:req.params.id},function(err,data){
+    if(err){
+      res.send({"err":err,"status":false});
+    }else{
+      res.send({"status":true,"response":data});
+    }
+  });
+});
 router.delete('/deleteData/:id',function(req,res,next){
   List.remove({_id:req.params.id},function(err,data){
     if(err){
