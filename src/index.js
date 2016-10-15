@@ -7,6 +7,7 @@ import LoginForm from './components/LoginForm';
 import App from './components/App';
 import Logout from './components/Logout';
 import AddItem from './components/AddItem';
+import UpdateItem from './components/UpdateItem';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
@@ -25,6 +26,7 @@ ReactDOM.render(
 					<Route  onEnter = {requireAuth}>
 						<Route path="/logout" component={Logout} />
 						<Route path="/addItem" component={AddItem} />
+						<Route path="/updateItem/:id" component={UpdateItem} />
 					</Route>
 				</Route>
 			</Router>

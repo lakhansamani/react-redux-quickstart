@@ -18,6 +18,14 @@ export default function(state = initialState, action) {
 			return {...state,list:{list:[],loading:false,err:null,limit:12,offset:0,total:0}}
 		case actionTypes.ADD_REQ_ERROR:
 			return {...state,list:{list:[...state.list.list],loading:false,err:null,limit:12,offset:0,total:0}};
+		case actionTypes.UPDATE_REQ_INIT:
+			return {...state,list:{list:[...state.list.list],loading:true,err:null,limit:12,offset:0,total:0}}
+		case actionTypes.UPDATE_REQ_SUCCESS:
+			console.log(state);
+			console.log(state.list.total);
+			return {...state,list:{list:[],loading:false,err:null,limit:12,offset:0,total:0}}
+		case actionTypes.UPDATE_REQ_ERROR:
+			return {...state,list:{list:[...state.list.list],loading:false,err:null,limit:12,offset:0,total:0}};
 	}
 	return state;
 }

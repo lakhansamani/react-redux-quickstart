@@ -6,7 +6,6 @@ const getList = (offset) => {
     .then((res)=>res.json(),(err)=>err);
 };
 const addItem = (data) =>{
-  console.log(data);
   return fetch(api.addData,{method:'POST',
   headers: {
       'Content-Type':'application/json',
@@ -15,4 +14,20 @@ const addItem = (data) =>{
   body:JSON.stringify(data)})
   .then(res=>res.json(),err=>err);
 };
-export {getList,addItem};
+const updatItem = (data,id)=>{
+    return fetch(api.updatItem+'/'+id,{method:'PUT',
+        headers:{
+            'Content-Type':'application/json',
+            'x-access-token':getAccessToken()
+        },
+        body:JSON.stringify(data)})
+        .then(res=>res.json(),err=>err);
+};
+const getItem = (id) =>{
+    return fetch(api.getItem+'/'+id,{method:'GET',
+        headers:{
+            'x-access-token':getAccessToken()
+        }})
+        .then(res=>res.json(),err=>err);
+};
+export {getList,addItem, updatItem,getItem};

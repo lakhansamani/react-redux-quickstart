@@ -12,19 +12,19 @@ const mapStateProps = (state)=>{
 const mapDispatchToProps = (dispatch) =>{
   return{
     addData:(data)=>{
-      let req = dispatch(addRequestInit(data));
-      req.payload.then(res=>{
-        if(res.status){
-          dispatch(addRequestSucess(res.response));
-          browserHistory.push('/');
-        }
-        else{
-          dispatch(addRequestFail(res.err));
-        }
-      },err=>{
-        dispatch(addRequestFail(err));
-      });
-    }
-  }
-}
+        let req = dispatch(addRequestInit(data));
+        req.payload.then(res=>{
+          if(res.status){
+            dispatch(addRequestSucess(res.response));
+            browserHistory.push('/');
+          }
+          else{
+            dispatch(addRequestFail(res.err));
+          }
+        },err=>{
+          dispatch(addRequestFail(err));
+        });
+      }
+    };
+};
 export default connect(mapStateProps, mapDispatchToProps)(ItemForm);
