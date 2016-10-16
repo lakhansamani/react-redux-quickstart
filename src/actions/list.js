@@ -1,5 +1,5 @@
 import * as actionTypes from '../constants/actionType';
-import {getList, addItem, updateData} from '../api/ListApi';
+import {getList, addItem, updateItem} from '../api/ListApi';
 
 function fetchData (offset){
 	return {

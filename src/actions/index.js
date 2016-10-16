@@ -1,4 +1,4 @@
-import { fetchData,fetchDataSuccess,fetchDataFailure,addRequestInit,addRequestSucess,addRequestFail } from './list';
+import { fetchData,fetchDataSuccess,fetchDataFailure,addRequestInit,addRequestSucess,addRequestFail,updateRequestInit, updateRequestSuccess, updateRequestFail } from './list';
 import {loginRequest,checkAuth,loginSuccess,loginFailure,logoutAction} from './auth';
 export {
 	fetchData,
@@ -11,5 +11,8 @@ export {
 	logoutAction,
 	addRequestInit,
 	addRequestSucess,
-	addRequestFail
+	addRequestFail,
+	updateRequestInit,
+	updateRequestSuccess,
+	updateRequestFail
 };

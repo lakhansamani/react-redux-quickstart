@@ -41,6 +41,13 @@ class ItemForm extends Component{
             this.props.addData(data);
           }
         }
+        if(this.props.action === 'update'){
+            let data = {
+                title:this.state.title,
+                url:this.state.url
+            };
+            this.props.updateData(data,this.props.data._id);
+        }
     }
     render(){
         let {isLoading,err} = this.props.list;
@@ -49,7 +56,7 @@ class ItemForm extends Component{
                 <div className="row">
                     <div className="col-lg-4 col-lg-offset-4">
                       <div className="panel panel-default">
-                        <div className="panel-heading"><h3> Add new item </h3></div>
+                        <div className="panel-heading"><h3>{this.props.action === 'add' ? 'Add new Item' : 'Update Item'}</h3></div>
                         <div className="panel-body">
                           <form onSubmit={this.handleSubmit.bind(this)}>
                               <FormGroup validationState={this.getValidationStateTitle()} controlId="title">

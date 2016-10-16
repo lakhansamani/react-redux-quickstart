@@ -14,7 +14,7 @@ const addItem = (data) =>{
   body:JSON.stringify(data)})
   .then(res=>res.json(),err=>err);
 };
-const updatItem = (data,id)=>{
+const updateItem = (data,id)=>{
     return fetch(api.updatItem+'/'+id,{method:'PUT',
         headers:{
             'Content-Type':'application/json',
@@ -30,4 +30,4 @@ const getItem = (id) =>{
         }})
         .then(res=>res.json(),err=>err);
 };
-export {getList,addItem, updatItem,getItem};
+export {getList,addItem, updateItem,getItem};

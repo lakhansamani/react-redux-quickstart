@@ -21,12 +21,12 @@ ReactDOM.render(
 			<Router history={history}>
 				<Route path = "/" component = {App}>
 					<IndexRoute component = {Home} />
-					<Route path="/" component={Home} />
-					<Route path="/login" component={LoginForm} />
+					<Route path="login" component={LoginForm} />
 					<Route  onEnter = {requireAuth}>
-						<Route path="/logout" component={Logout} />
-						<Route path="/addItem" component={AddItem} />
-						<Route path="/updateItem/:id" component={UpdateItem} />
+						<IndexRoute component = {Home} />
+						<Route path="logout" component={Logout} />
+						<Route path="addItem" component={AddItem} />
+						<Route path="updateItem/:id" component={UpdateItem} />
 					</Route>
 				</Route>
 			</Router>

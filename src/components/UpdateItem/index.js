@@ -5,16 +5,16 @@ import {Loading} from '../Loading';
 class UpdateItem extends Component{
     constructor(props){
         super(props);
-        this.state={itemId:this.props.params.id,data:{},isLoading:false};
+        this.state={itemId:this.props.params.id,data:{},isLoading:true};
     }
     componentDidMount(){
-        getItemData();
+        this.getItemData();
     }
     getItemData(){
-        this.setState({isLoading:true});
-        getItem(this.props.params.id)
+        getItem(this.state.itemId)
         .then(data=>{
             if(data.status){
+                console.log(data);
                 this.setState({data:data.response});
             }
             else{
