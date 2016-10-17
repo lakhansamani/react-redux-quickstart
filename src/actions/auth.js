@@ -1,9 +1,9 @@
 import * as actionTypes from '../constants/actionType';
 import {verifyToken,postLoginData} from '../api/LoginApi';
-function checkAuth(token){
+function checkAuth(){
     return{
         type:actionTypes.CHECK_AUTH,
-        payload:verifyToken(token)
+        payload:verifyToken()
     };
 }
 function loginRequest(data){

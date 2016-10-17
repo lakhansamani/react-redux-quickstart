@@ -1,8 +1,9 @@
 import * as api from '../constants/ApiConstants';
 import fetch from 'isomorphic-fetch';
-let verifyToken = (token) => {
-    if(token){
-        return fetch(api.verifyToken,{method:'get',headers:{'x-access-token':token}})
+import {getAccessToken} from '../utils/authservice';
+let verifyToken = () => {
+    if(getAccessToken()){
+        return fetch(api.verifyToken,{method:'get',headers:{'x-access-token':getAccessToken()}})
         .then(res=>res.json(),err=>err);
     }
     else{

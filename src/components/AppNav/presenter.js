@@ -8,6 +8,11 @@ class AppNav extends Component{
     super(props);
     this.state = {navExpanded:false};
   }
+  componentDidMount(){
+    if(this.props.auth.isLoggedIn){
+      this.props.verifyToken();
+    }
+  }
   setNavExpanded(expanded) {
     this.setState({ navExpanded: expanded });
   }
