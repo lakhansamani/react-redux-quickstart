@@ -12,6 +12,8 @@ import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { requireAuth } from './utils/authservice';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 require('./assets/styles/index.scss');
 
 const store = configureStore();

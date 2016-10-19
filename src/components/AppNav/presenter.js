@@ -3,6 +3,8 @@ import logo from '../../assets/images/logo.png';
 import  {Navbar, Nav, NavItem, FormGroup, FormControl} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import {Link} from 'react-router';
+import {AppBar, IconButton} from 'material-ui';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 class AppNav extends Component{
   constructor(props){
     super(props);
@@ -19,6 +21,9 @@ class AppNav extends Component{
   closeNav() {
     this.setState({ navExpanded: false });
   }
+  handleTouchTap(){
+    console.log("menu clicked");
+  }
   render(){
     let authLink = '';
     if(this.props.auth.isLoggedIn){
@@ -28,30 +33,11 @@ class AppNav extends Component{
       authLink='/login';
     }
     return(
-      <Navbar fixedTop onToggle={this.setNavExpanded.bind(this)} expanded={this.state.navExpanded}>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">Sample Application</Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav pullRight onSelect={this.closeNav.bind(this)}>
-            {this.props.auth.isLoggedIn?
-              <LinkContainer to='/addItem'>
-                 <NavItem eventKey={1}>Add Item</NavItem>
-                 </LinkContainer>:''}
-            <LinkContainer to={authLink}>
-              <NavItem eventKey={2}>{this.props.auth.isLoggedIn?'Logout':'Login'}</NavItem>
-            </LinkContainer>
-          </Nav>
-          <Navbar.Form pullRight>
-            <FormGroup>
-              <FormControl type="text" placeholder="Search" className="input-sm nav-search"/>
-            </FormGroup>
-          </Navbar.Form>
-        </Navbar.Collapse>
-      </Navbar>
+      <AppBar
+        title={<span>Sample Application</span>}
+        onTitleTouchTap={this.handleTouchTap.bind(this)}
+        iconElementRight={<IconButton><MoreVertIcon /></IconButton>}
+      />
     );
   }
 }
