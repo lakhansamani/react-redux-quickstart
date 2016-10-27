@@ -14,13 +14,14 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { requireAuth } from './utils/authservice';
 require('./assets/styles/index.scss');
 
-const store = configureStore();
+const initialState = window.__INITIAL_STATE__
+const store = configureStore(initialState);
 const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
 		<Provider store = {store}>
 			<Router history={history}>
 				<Route path = "/" component = {App}>
-					<IndexRoute component = {Home} />
+				<IndexRoute component = {Home} />
 					<Route path="login" component={LoginForm} />
 					<Route  onEnter = {requireAuth}>
 						<IndexRoute component = {Home} />

@@ -6,6 +6,7 @@ class Home extends Component{
   constructor(props){
     super(props);
     this.onScroll = this.onScroll.bind(this);
+    this.state = {scrolling:false};
   }
   componentDidMount(){
     if(this.needToFetch()){
@@ -20,6 +21,7 @@ class Home extends Component{
   onScroll() {
     const {offset,limit} = this.props.list;
     if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)) {
+      this.setState({scrolling:true})
       if(this.needToFetch() && this.canFetch()){
         this.props.getData(offset);
       }
@@ -28,20 +30,26 @@ class Home extends Component{
 
   needToFetch(){
     const {total, list, offset, limit, shouldFetch} = this.props.list;
+    console.log(this.props.list);
     if(list.length === 0){
       return true;
     }
 
-    if(total === list.length){
+    if(this.state.scrolling){
+      if(total === list.length){
+        return false;
+      }
+      if(list.length<12){
+        return false;
+      }
+      if(offset > total){
+        return false;
+      }
+      return true;
+    }
+    else{
       return false;
     }
-    if(list.length<12){
-      return false;
-    }
-    if(offset > total){
-      return false;
-    }
-    return true;
   }
   canFetch(){
     const {loading} = this.props.list;

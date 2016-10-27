@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Logout from './presenter';
 import {logoutAction} from '../../actions';
 import { browserHistory } from 'react-router';
-
+import cookie from 'react-cookie'
 const mapStateProps = (state) => {
 	const auth = state.auth.auth;
 	return{
@@ -13,7 +13,7 @@ const mapStateProps = (state) => {
 const mapDispatchToProps =(dispatch) =>{
 	return{
 		logout:()=>{
-			localStorage.removeItem('authData');
+			cookie.remove('authData');
 			dispatch(logoutAction());
 			browserHistory.push('/');
 		}

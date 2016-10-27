@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import LoginForm from './presenter';
 import {loginRequest, loginSuccess, loginFailure} from '../../actions';
 import { browserHistory } from 'react-router';
-
+import cookie from 'react-cookie';
 const mapStateProps = (state) => {
 	const auth = state.auth.auth;
 	return{
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) =>{
 			let req = dispatch(loginRequest(data));
 			req.payload.then(response =>{
 				if(response.status){
-					localStorage.setItem('authData',JSON.stringify(response.response));
+					cookie.save('authData',JSON.stringify(response.response));
 					dispatch(loginSuccess(response.response));
 					browserHistory.push('/');
 				}

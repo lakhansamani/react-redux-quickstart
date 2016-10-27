@@ -4,6 +4,7 @@
   "description": "react redux quick start",
   "main": "index.js",
   "scripts": {
+    "startDev": "node server.js",
     "test": "cross-env NODE_PATH=src ava",
     "start": "webpack-dev-server --progress --colors --hot --config ./webpack.dev.config.js",
     "build": "webpack --progress --p --color --config webpack.config.js"
@@ -37,6 +38,7 @@
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "exports-loader": "^0.6.3",
+    "express": "^4.14.0",
     "file-loader": "^0.9.0",
     "ignore-styles": "^5.0.1",
     "imports-loader": "^0.6.5",
@@ -58,6 +60,7 @@
     "react": "^15.2.1",
     "react-autosuggest": "^3.8.0",
     "react-bootstrap": "^0.30.5",
+    "react-cookie": "^0.4.8",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",

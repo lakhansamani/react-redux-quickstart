@@ -1,5 +1,6 @@
+import cookie from 'react-cookie';
 function checkLogin(){
-    if(localStorage.authData){
+    if(cookie.load('authData')){
         return true;
     }
     else{
@@ -7,12 +8,14 @@ function checkLogin(){
     }
 }
 function getAccessToken(){
-  let data = JSON.parse(localStorage.authData);
-  return data.token;
+  if(cookie.load('authData')){
+    let data = cookie.load('authData');
+    return data.token;
+  }
 }
 function getLoginData(){
-    if(localStorage.authData){
-        return localStorage.authData;
+    if(cookie.load('authData')){
+        return cookie.load('authData');
     }
     else{
         return null;

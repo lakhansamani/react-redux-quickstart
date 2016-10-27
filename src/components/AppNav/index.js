@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import AppNav from './presenter';
 import { browserHistory } from 'react-router';
 import {checkAuth,logoutAction} from '../../actions';
+import cookie from 'react-cookie';
 const mapStateProps = (state) => {
 	const auth = state.auth.auth;
 	return{
@@ -17,12 +18,12 @@ const mapDispatchToProps = (dispatch)=>{
 				req.payload.then(res=>{
 					console.log(res);
 					if(!res.status){
-						localStorage.removeItem('authData');
+						cookie.remove('authData');
 						dispatch(logoutAction());
 						browserHistory.push('/');
 					}
 				},err=>{
-					localStorage.removeItem('authData');
+					cookie.remove('authData');
 					dispatch(logoutAction());
 					browserHistory.push('/');
 				});
